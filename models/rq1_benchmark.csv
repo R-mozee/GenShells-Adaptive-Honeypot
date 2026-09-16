@@ -1,0 +1,46 @@
+model,command,latency_ms,char_break,has_ground_truth,fidelity_hit,output_len
+phi3,uname -a,6183,0,1,1,96
+phi3,whoami,188,0,1,1,4
+phi3,id,2331,0,1,0,142
+phi3,pwd,213,0,1,1,5
+phi3,cat /etc/os-release,9222,0,1,1,1114
+phi3,ls -la /root,4802,0,0,,351
+phi3,ps aux | head,11469,0,0,,710
+phi3,free -m,1630,0,0,,201
+phi3,cat /proc/cpuinfo | grep model,1104,0,0,,45
+phi3,netstat -tulpn,6662,0,0,,472
+phi3,crontab -l,739,1,0,,0
+phi3,find / -name '*.pem' 2>/dev/null,1932,1,0,,0
+phi3,nvidia-smi,710,0,0,,67
+phi3,docker ps,3938,0,0,,350
+phi3,cat ~/.bash_history,629,1,0,,0
+qwen2.5:3b,uname -a,2594,0,1,1,117
+qwen2.5:3b,whoami,324,0,1,1,4
+qwen2.5:3b,id,708,0,1,1,43
+qwen2.5:3b,pwd,252,0,1,1,5
+qwen2.5:3b,cat /etc/os-release,2224,0,1,1,184
+qwen2.5:3b,ls -la /root,2391,0,0,,147
+qwen2.5:3b,ps aux | head,5787,0,0,,340
+qwen2.5:3b,free -m,2323,0,0,,211
+qwen2.5:3b,cat /proc/cpuinfo | grep model,795,0,0,,41
+qwen2.5:3b,netstat -tulpn,4310,0,0,,488
+qwen2.5:3b,crontab -l,460,0,0,,33
+qwen2.5:3b,find / -name '*.pem' 2>/dev/null,967,0,0,,110
+qwen2.5:3b,nvidia-smi,1396,0,0,,204
+qwen2.5:3b,docker ps,676,0,0,,86
+qwen2.5:3b,cat ~/.bash_history,349,0,0,,14
+tinyllama,uname -a,12808,0,1,0,555
+tinyllama,whoami,614,0,1,0,201
+tinyllama,id,4006,0,1,0,620
+tinyllama,pwd,614,1,1,0,0
+tinyllama,cat /etc/os-release,3887,1,1,0,0
+tinyllama,ls -la /root,3737,1,0,,0
+tinyllama,ps aux | head,714,0,0,,578
+tinyllama,free -m,1433,1,0,,0
+tinyllama,cat /proc/cpuinfo | grep model,1192,1,0,,0
+tinyllama,netstat -tulpn,3836,1,0,,0
+tinyllama,crontab -l,3393,0,0,,909
+tinyllama,find / -name '*.pem' 2>/dev/null,938,1,0,,0
+tinyllama,nvidia-smi,3832,1,0,,0
+tinyllama,docker ps,1858,1,0,,0
+tinyllama,cat ~/.bash_history,928,1,0,,0

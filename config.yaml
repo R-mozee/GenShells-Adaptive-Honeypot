@@ -1,0 +1,32 @@
+# GenShells configuration
+listen:
+  host: "0.0.0.0"
+  port: 2222            # never bind 22 on your Mac; the VPS maps 22 -> tunnel
+host_key_path: "host_key.rsa"
+
+server_banner: "SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.5"
+hostname: "srv-prod-01"        # shown in the fake shell prompt
+emulated_os: "Ubuntu 24.04.1 LTS"
+
+session:
+  max_commands: 200            # hard cap per session
+  idle_timeout_sec: 120
+  hard_timeout_sec: 900
+
+# Experiment arm: "A" static | "B" generative | "C" adaptive | "auto" (hash IP)
+arm_mode: "auto"
+salt: "CHANGE_ME_before_deploy"   # HMAC salt for IP hashing + arm assignment
+
+llm:
+  enabled: true
+  provider: "ollama"
+  base_url: "http://127.0.0.1:11434"
+  model: "qwen2.5:3b"
+  temperature: 0.2
+  num_predict: 400
+  timeout_sec: 20
+  # If the LLM is slow/unreachable we fall back to deterministic/canned output.
+
+logging:
+  path: "logs/sessions.jsonl"
+  hash_ips: true               # store HMAC(ip), never raw IP, in shipped data

@@ -1,0 +1,4 @@
+model,n_runs,fidelity_pct,fidelity_ci,fidelity_n,break_pct,break_ci,latency_mean_ms,latency_std_ms,latency_ci_ms,latency_median_ms
+qwen2.5:3b,75,100.0,"[86.7, 100]",25,0.0,"[0, 4.9]",4964,6086,"[3586, 6341]",3394
+phi3,75,80.0,"[60.9, 91.1]",25,18.7,"[11.5, 28.9]",7837,8079,"[6009, 9666]",5290
+tinyllama,75,16.0,"[6.4, 34.7]",25,68.0,"[56.8, 77.5]",4485,3068,"[3791, 5180]",3007

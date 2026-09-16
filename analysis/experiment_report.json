@@ -1,0 +1,106 @@
+{
+  "arms": {
+    "A": {
+      "n_sessions": 529,
+      "median_cmds": 2.0,
+      "mean_cmds": 2.27,
+      "followup_rate": [
+        0.076,
+        0.053,
+        0.098
+      ],
+      "second_stage_url_rate": [
+        0.066,
+        0.045,
+        0.087
+      ],
+      "return_7d_rate": [
+        0.038,
+        0.022,
+        0.054
+      ],
+      "latency_ms_median": 21.0,
+      "latency_ms_iqr": [
+        12.0,
+        31.0
+      ]
+    },
+    "B": {
+      "n_sessions": 478,
+      "median_cmds": 2.0,
+      "mean_cmds": 2.71,
+      "followup_rate": [
+        0.176,
+        0.142,
+        0.21
+      ],
+      "second_stage_url_rate": [
+        0.149,
+        0.117,
+        0.18
+      ],
+      "return_7d_rate": [
+        0.1,
+        0.073,
+        0.127
+      ],
+      "latency_ms_median": 1298.0,
+      "latency_ms_iqr": [
+        808.0,
+        1736.0
+      ]
+    },
+    "C": {
+      "n_sessions": 493,
+      "median_cmds": 3.0,
+      "mean_cmds": 3.4,
+      "followup_rate": [
+        0.256,
+        0.217,
+        0.294
+      ],
+      "second_stage_url_rate": [
+        0.203,
+        0.167,
+        0.238
+      ],
+      "return_7d_rate": [
+        0.105,
+        0.078,
+        0.133
+      ],
+      "latency_ms_median": 1215.0,
+      "latency_ms_iqr": [
+        761.0,
+        1704.0
+      ]
+    }
+  },
+  "tests": {
+    "cmds_kruskal": {
+      "H": 117.279,
+      "p": 0.0
+    },
+    "cmds_pairwise_mannwhitney": {
+      "A_vs_B": {
+        "U": 105655.0,
+        "p": 0.0,
+        "rank_biserial": 0.164
+      },
+      "A_vs_C": {
+        "U": 81119.5,
+        "p": 0.0,
+        "rank_biserial": 0.378
+      },
+      "B_vs_C": {
+        "U": 91187.0,
+        "p": 0.0,
+        "rank_biserial": 0.226
+      }
+    },
+    "followup_chi2": {
+      "chi2": 59.92,
+      "p": 0.0
+    }
+  }
+}
