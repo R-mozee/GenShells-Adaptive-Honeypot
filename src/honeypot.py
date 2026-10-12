@@ -106,6 +106,9 @@ def _make_engine_and_state(ip):
                          username="root")
     return arm, engine, state
 
+def _crlf(text):
+    return text.replace("\r\n", "\n").replace("\n", "\r\n")
+
 
 def handle_exec(chan, server, ip, src_port, logger):
     arm, engine, state = _make_engine_and_state(ip)
@@ -206,7 +209,7 @@ def handle_shell(chan, server, ip, src_port, logger):
                 out = result["text"]
                 if out:
                     try:
-                        chan.sendall((out + "\r\n").encode("utf-8", "replace"))
+                        chan.sendall((_crlf(out) + "\r\n").encode("utf-8", "replace"))
                     except Exception:
                         break
                 if seq >= max_cmds:

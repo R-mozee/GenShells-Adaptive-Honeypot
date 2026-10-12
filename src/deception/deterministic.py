@@ -94,6 +94,45 @@ def handle(cmd: str, state: SessionState) -> Tuple[bool, str]:
         return True, _fake_uname(state, args)
     if prog == "uptime":
         return True, " 14:22:41 up 37 days,  3:11,  1 user,  load average: 0.08, 0.03, 0.01"
+    if prog == "top":
+        return True, "\n".join([
+            "top - 14:22:41 up 37 days,  3:11,  1 user,  load average: 0.08, 0.03, 0.01",
+            "Tasks: 112 total,   1 running, 111 sleeping,   0 stopped,   0 zombie",
+            "%Cpu(s):  0.3 us,  0.2 sy,  0.0 ni, 99.4 id,  0.1 wa,  0.0 hi,  0.0 si,  0.0 st",
+            "MiB Mem :   7943.2 total,   1204.5 free,   2310.8 used,   4427.9 buff/cache",
+            "MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   5321.4 avail Mem",
+            "",
+            "    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND",
+            "      1 root      20   0  167936  13212   8348 S   0.0   0.2   0:11.52 systemd",
+            "      2 root      20   0       0      0      0 S   0.0   0.0   0:00.08 kthreadd",
+            "    612 root      20   0   15424   9020   7612 S   0.0   0.1   0:02.31 sshd",
+            "    734 root      20   0   55284   5124   4388 S   0.0   0.1   0:00.74 nginx",
+            "    735 www-data  20   0   55960   5316   3712 S   0.0   0.1   0:01.12 nginx",
+            "    801 root      20   0   29492  11248   6424 S   0.0   0.1   0:00.55 cron",
+            "    844 syslog    20   0  222404   5900   4340 S   0.0   0.1   0:03.07 rsyslogd",
+        ])
+    if prog == "free":
+        if "-h" in args:
+            return True, "\n".join([
+                "               total        used        free      shared  buff/cache   available",
+                "Mem:           7.8Gi       2.3Gi       1.2Gi       1.1Mi       4.3Gi       5.2Gi",
+                "Swap:          2.0Gi          0B       2.0Gi",
+            ])
+        return True, "\n".join([
+            "               total        used        free      shared  buff/cache   available",
+            "Mem:         8133837     2366259     1233408        1126     4534170     5449114",
+            "Swap:        2097148           0     2097148",
+        ])
+    if prog == "df":
+        return True, "\n".join([
+            "Filesystem      Size  Used Avail Use% Mounted on",
+            "tmpfs           795M  1.2M  794M   1% /run",
+            "/dev/sda1        29G  6.8G   22G  24% /",
+            "tmpfs           3.9G     0  3.9G   0% /dev/shm",
+            "tmpfs           5.0M     0  5.0M   0% /run/lock",
+            "/dev/sda15      105M  6.1M   99M   6% /boot/efi",
+            "tmpfs           795M   12K  795M   1% /run/user/0",
+        ])
     if prog == "cd":
         state.chdir(args.strip())
         return True, ""
