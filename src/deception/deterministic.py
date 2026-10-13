@@ -133,6 +133,8 @@ def handle(cmd: str, state: SessionState) -> Tuple[bool, str]:
             "/dev/sda15      105M  6.1M   99M   6% /boot/efi",
             "tmpfs           795M   12K  795M   1% /run/user/0",
         ])
+    if prog == "nginx" and args.strip() == "-v":
+        return True, "nginx version: nginx/1.24.0 (Ubuntu)"
     if prog == "cd":
         state.chdir(args.strip())
         return True, ""
